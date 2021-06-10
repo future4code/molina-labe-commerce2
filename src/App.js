@@ -1,4 +1,5 @@
 import React from 'react';
+import Filtros from './components/Filtros';
 
 import styled from 'styled-components';
 
@@ -28,7 +29,7 @@ function App() {
 function App() {
   return (
     <div>
-      dasdsadsadsads
+      <Filtros />
     </div>
   );
 }
