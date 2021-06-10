@@ -1,4 +1,5 @@
 import React from 'react';
+import Filtros from './components/Filtros';
 
 import styled from 'styled-components';
 import Carrinho from './components/Carrinho';
@@ -66,6 +67,16 @@ class App extends React.Component{
       </Container>
     )
   }
+  
+  
+function App() {
+  return (
+    <Container>
+      <Filtros />
+      <Produtos/>
+      <Carrinho/>
+    </Container>
+  )
 }
   
 export default App;
