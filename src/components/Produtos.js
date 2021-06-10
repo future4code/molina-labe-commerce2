@@ -8,25 +8,54 @@ const ImagemProduto = styled.img`
 export default class Produtos extends React.Component {
 
 
-    renderizaProdutos = () => {
-        let lista = [];
-        for (let produto of this.props.listaProdutos) {
-            lista.push(
-                <div>
-                    <ImagemProduto src={produto.imagemProduto} alt={produto.nomeProduto}/>
-                    <h3>{produto.nomeProduto}</h3>
-                    <p>₿ {produto.valor.toFixed(2)}</p>
-                    <button>Adicionar ao carrinho</button>
-                </div>
-            );
+    filtraProduto = () =>{
+     
+      const  listaFiltrada = this.props.listaProdutos.filter((produto) => {
+            
+        if (produto.valor > this.props.inputValorMinimo && produto.valor < this.props.inputValorMaximo) {
+            return true
+        
+        } else {
+            return false
         }
 
-        return lista;
+        }).filter((produto)=>{
+        if (produto.nomeProduto.includes(this.props.inputBusca)){
+            return true
+        }else{
+            return false
+        }
+
+    })
+
+     return listaFiltrada
     }
+     
+     
+
 
     render() {
+            const listaFiltrada = this.filtraProduto().map((produto)=>{
 
-        return <div>{this.renderizaProdutos()}</div>
+                return <div>
+                <ImagemProduto src={produto.imagemProduto} alt={produto.nomeProduto}/>
+                <h3>{produto.nomeProduto}</h3>
+                <p>₿ {produto.valor}</p>
+                <button>Adicionar ao carrinho</button>
+            </div>
+
+
+            })
+
+
+        console.log(this.listaFiltrada)
+        console.log(this.props.inputValorMinimo, this.props.inputValorMaximo)
+
+       
+        return <div>
+            {listaFiltrada}</div>
+
+        
     }
 
 }
