@@ -1,12 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
+
+import Carrinho from './components/Carrinho';
+import Produtos from './components/Produtos';
+
+// import CarrinhoLogic from '.  /logic/carrinho'
+
+
+const Container = styled.div`
+  display: flex;
+`;
+
+// Lembrar de passar carrinhoLogic com props
+// let carrinhoLogic = new CarrinhoLogic();
 
 function App() {
   return (
-    <div>
-      
-    </div>
+    <Container>
+
+      <Produtos/>
+      <Carrinho/>
+
+    </Container>
   );
 }
 
