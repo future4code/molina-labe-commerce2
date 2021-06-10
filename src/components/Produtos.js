@@ -67,7 +67,7 @@ export default class Produtos extends React.Component {
                     
         })
 
-       console.log("Meus produtos", componentesProdutos)
+       
       
 
 
@@ -82,6 +82,7 @@ export default class Produtos extends React.Component {
                         <option value="Menor Preço">Menor Preço</option>
 
                     </select>
+                    
                 </div>
 
                 
