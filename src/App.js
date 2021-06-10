@@ -19,19 +19,11 @@ const Container = styled.div`
 function App() {
   return (
     <Container>
-
+      <Filtros />
       <Produtos/>
       <Carrinho/>
-
     </Container>
-
-
-function App() {
-  return (
-    <div>
-      <Filtros />
-    </div>
-  );
+  )
 }
 
 export default App;
