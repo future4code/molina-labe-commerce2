@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styled from 'styled-components';
 import Carrinho from './components/Carrinho';
 import Produtos from './components/Produtos';
@@ -52,21 +53,19 @@ class App extends React.Component{
     listaProdutos: listaProdutos
   }
 
-  render() {
+    render() {
 
-    return (
-    <Container>
-      
-      <Produtos 
-      listaProdutos = {this.state.listaProdutos}
-      />
-      <Carrinho/>
+      return (
+      <Container>
+        
+        <Produtos 
+        listaProdutos = {this.state.listaProdutos}
+        />
+        <Carrinho/>
 
-    </Container>
-  )
+      </Container>
+    )
   }
-  
-  
 }
-
+  
 export default App;
