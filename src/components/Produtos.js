@@ -1,7 +1,5 @@
 import React from 'react'
-import { ListaProdutos } from '../logic/produtos'
 import styled from 'styled-components'
-
 
 const ImagemProduto = styled.img`
     width: 300px;
@@ -9,15 +7,16 @@ const ImagemProduto = styled.img`
 
 export default class Produtos extends React.Component {
 
+
     renderizaProdutos = () => {
         let lista = [];
-        for (let produto of ListaProdutos) {
+        for (let produto of this.props.listaProdutos) {
             lista.push(
                 <div>
                     <ImagemProduto src={produto.imagemProduto} alt={produto.nomeProduto}/>
                     <h3>{produto.nomeProduto}</h3>
                     <p>₿ {produto.valor.toFixed(2)}</p>
-                    <button /*onClick={carrinhoLogic.somarItem(produto.id)}*/>Adicionar ao carrinho</button>
+                    <button>Adicionar ao carrinho</button>
                 </div>
             );
         }
