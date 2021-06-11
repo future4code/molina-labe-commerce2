@@ -7,6 +7,11 @@ const ImagemProduto = styled.img`
 
 export default class Produtos extends React.Component {
 
+    addCarrinho = (itemId) => {
+        this.props.adicionaAoCarrinho(itemId);
+        console.log('Produto ' + itemId + ' adicionado ao carrinho!')
+    }
+
 
     filtraProduto = () =>{
      
@@ -42,7 +47,7 @@ export default class Produtos extends React.Component {
                 <ImagemProduto src={produto.imagemProduto} alt={produto.nomeProduto}/>
                 <h3>{produto.nomeProduto}</h3>
                 <p>₿ {produto.valor}</p>
-                <button>Adicionar ao carrinho</button>
+                <button onClick={() => this.addCarrinho(produto.id)}>Adicionar ao carrinho</button>
             </div>
 
 
@@ -53,9 +58,11 @@ export default class Produtos extends React.Component {
         console.log(this.props.inputValorMinimo, this.props.inputValorMaximo) */
 
        
-        return <div>
-            {listaFiltrada}</div>
-
+        return (
+            <div>
+                {listaFiltrada}
+            </div>
+        )
         
     }
 

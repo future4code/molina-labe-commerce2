@@ -3,30 +3,13 @@ import React from 'react'
 
 export default class Carrinho extends React.Component {
 
-    ValorTotal = 0;
-    ProdutosNoCarrinho = [];
-
-
-    removerItem = (itemId) => {
-        let produtos = this.ProdutosNoCarrinho;
-        const tamanhoLista = produtos.length;
-
-        for (let i=0; i<tamanhoLista; i++) {
-            if (produtos[i].id === itemId) {
-                this.ValorTotal -= produtos[i].valor;
-                this.produtos.splice(i, 1);
-            }
-        }
-
-        this.ProdutosNoCarrinho = produtos;
-        return this.ValorTotal;
-    }
-
 
     getItensUnicos = () => {
-        const itens = new Set(this.ProdutosNoCarrinho);
+        console.log('getCarrinho()', this.props.getCarrinho())
+        const itens = new Set(this.props.getCarrinho());
         const itensArray = Array.from(itens);
 
+        console.log('getItensUnicos()', itensArray)
         return itensArray;
     }
 
@@ -34,8 +17,8 @@ export default class Carrinho extends React.Component {
         let quant = 0;
         let item;
 
-        for (item of this.ProdutosNoCarrinho) {
-            if (item.id === itemId) {
+        for (item of this.props.getCarrinho()) {
+            if (item === itemId) {
                 quant++;
             }
         }
@@ -44,18 +27,31 @@ export default class Carrinho extends React.Component {
     }
 
 
+    renderizaCarrinho = () => {
+        let listaItens = []
+        for (let itemId of this.getItensUnicos()) {
+            listaItens.push(
+                <div>
+                    <p>{this.getQuantItem(itemId)}x {this.props.produtos[itemId].nomeProduto}</p>
+                    <button onClick={() => this.props.removeDoCarrinho(itemId)}>Remover item</button>
+                </div>
+            )
+        }
+
+        console.log('listaItens', listaItens);
+        return listaItens;
+    }
+
+
 
 
     render() {
-
-
-
        
         return(
             <div>
             <h2>CARRINHO</h2>
-            <button onClick={this.removerItem}>Remover intem</button>
-            {<p>Total: ₿ {this.ValorTotal.toFixed(2)}</p>}
+            {this.renderizaCarrinho()}
+            {<p>Total: ₿ {this.props.valorTotal.toFixed(2)}</p>}
             </div>
         )
     }

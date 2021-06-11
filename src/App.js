@@ -54,12 +54,65 @@ const listaProdutos = [
 
 export default class App extends React.Component {
 
+  constructor() {
+    super()
+
+    this.carrinho = []
+  }
+  
   state = {
-    listaProdutos: listaProdutos,
+    carrinho: [],
+    valorTotal: 0,
 
     inputValorMinimo: -Infinity,
     inputValorMaximo: +Infinity,
     inputBusca: ""
+  }
+
+  getCarrinho = () => {
+    // this.setState({carrinho: this.state.carrinho})
+    return this.state.carrinho;
+  }
+
+  atualizaCarrinho = () => {
+    this.setState({
+      valorTotal: this.state.valorTotal 
+    })
+  }
+
+  adicionaAoCarrinho = (itemId) => {
+    this.setState(state => {
+      const carrinho = state.carrinho.concat(itemId);
+      const valorTotal = state.valorTotal + listaProdutos[itemId-1].valor;
+
+      return {
+        carrinho,
+        valorTotal
+      }
+    }, () => console.log(this.state.carrinho));
+  }
+
+  removeDoCarrinho = (itemId) => {
+    console.log('Removendo item ' + itemId + ' do carrinho!')
+
+    let valorTotal = this.state.valorTotal;
+    let carrinho = this.state.carrinho;
+    
+    const tamanhoLista = carrinho.length;
+
+    for (let i=0; i<tamanhoLista; i++) {
+      if (carrinho[i] === itemId) {
+        valorTotal -= listaProdutos[carrinho[i]-1].valor;
+        carrinho.splice(i, 1);
+
+        break;
+      }
+    }
+
+    this.setState({
+      valorTotal: valorTotal,
+      carrinho: carrinho
+    })
   }
 
   onChangeInputValorMinimo = (event) => {
@@ -77,11 +130,6 @@ export default class App extends React.Component {
   }
 
   render() {
-
-
-
-
-
 
     return (
       <Container>
@@ -105,16 +153,21 @@ export default class App extends React.Component {
         </div>
 
         <Produtos
-          listaProdutos={this.state.listaProdutos}
+          listaProdutos={listaProdutos}
           inputValorMaximo={this.state.inputValorMaximo}
           inputValorMinimo={this.state.inputValorMinimo}
           inputBusca={this.state.inputBusca}
-
-
+          adicionaAoCarrinho={this.adicionaAoCarrinho}
         />
-        <Carrinho />
 
+        <Carrinho 
+          valorTotal={this.state.valorTotal}
+          produtos={listaProdutos}
+          getCarrinho={this.getCarrinho}
+          removeDoCarrinho={this.removeDoCarrinho}
+        />
       </Container>
+
     )
   }
 
