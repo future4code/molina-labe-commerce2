@@ -4,31 +4,43 @@ import React from 'react'
 import styled from 'styled-components'
 
 const ImagemProduto = styled.img`
-    width: 50%;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    
+    
 `
 
 const DivProdutos = styled.div`
  
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 
 `
 
 const DivQuantidade = styled.div`
-display: flex;
-justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
 
 `
 
 const SelectEstilizado = styled.select`
-height: 50%;
+    height: 50%;
 `
 
 const CardProdutos = styled.div`
     border: 1px solid black;
     display: grid;
+
+`
+
+const StyledButton = styled.button`
+    margin-bottom: 8px;
+    width: 153px;
+    border-radius: 16px;
+
 
 `
 
@@ -86,7 +98,7 @@ export default class Produtos extends React.Component {
                     <ImagemProduto src={produto.imagemProduto} alt={produto.nomeProduto} />
                     <h3>{produto.nomeProduto}</h3>
                     <p>₿ {produto.valor}</p>
-                    <button onClick={() => this.addCarrinho(produto.id)}>Adicionar ao carrinho</button>
+                    <StyledButton onClick={() => this.addCarrinho(produto.id)}>Adicionar ao carrinho</StyledButton>
 
                 </CardProdutos>
             )
