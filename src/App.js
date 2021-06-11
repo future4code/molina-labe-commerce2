@@ -10,6 +10,7 @@ import Ranger from './img/ranger.jpg'
 import Pandora from './img/pandora.jpg'
 import Marte from './img/marte.jpg'
 import Asteroid from './img/asteroid.jpg'
+import Logo from './img/logo.png'
 
 
 const Container = styled.div`
@@ -35,6 +36,27 @@ display: grid;
 width: 80%;
 padding: 8px;
 
+`
+
+const Header = styled.div`
+display: flex;
+justify-content: left;
+
+font-family: 'Times New Roman', Times, serif;
+height: 100px;
+
+`
+
+const ImagemLogo = styled.img`
+    width: 150px;
+    height: 150px;
+    margin-top: -24px;
+
+`
+
+const NomeSite = styled.h1`
+    font-weight: 600;
+    margin-left: 43px;
 `
 
 const listaProdutos = [
@@ -162,6 +184,14 @@ export default class App extends React.Component {
     
 
     return (
+      <div>
+
+
+        <Header>
+          <ImagemLogo src={Logo}/>
+          <NomeSite>AstroDev - Turismo Intergaláctico</NomeSite>
+        </Header>
+      
       <Container>
 
         <Filtro>
@@ -198,6 +228,8 @@ export default class App extends React.Component {
 
 
       </Container>
+
+      </div>
 
     )
   }
