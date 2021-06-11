@@ -6,13 +6,25 @@ import Carrinho from './components/Carrinho';
 import Produtos from './components/Produtos';
 
 
+
 const Container = styled.div`
   display: flex;
-`;
+`
 
 const Filtro = styled.div ` 
+  display: flex;
   border: 1px solid black;
   height: 100vh;
+  width: 20%;
+  justify-content: center;
+  `
+
+
+const ProdutosEstilizados = styled.div`
+border: 1px solid black;
+display: grid;
+width: 80%;
+
 `
 
 const listaProdutos = [
@@ -156,7 +168,7 @@ export default class App extends React.Component {
         </Filtro>
 
 
-        <div>
+        <ProdutosEstilizados>
           <Produtos
             listaProdutos={listaProdutos}
             inputValorMaximo={this.state.inputValorMaximo}
@@ -164,7 +176,7 @@ export default class App extends React.Component {
             inputBusca={this.state.inputBusca} 
             adicionaAoCarrinho={this.adicionaAoCarrinho}
           />
-       </div>
+       </ProdutosEstilizados>
        
 
         <Carrinho 
