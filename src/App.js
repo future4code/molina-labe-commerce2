@@ -59,11 +59,11 @@ export default class App extends React.Component {
 
     inputValorMinimo: -Infinity,
     inputValorMaximo: +Infinity,
-    inputBusca: ''
+    inputBusca: ""
   }
 
   onChangeInputValorMinimo = (event) => {
-    this.setState({inputValorMinimo: Number(event.target.value) })
+    this.setState({ inputValorMinimo: Number(event.target.value) })
 
   }
 
@@ -79,7 +79,6 @@ export default class App extends React.Component {
   render() {
 
 
-    
 
 
 
@@ -94,6 +93,17 @@ export default class App extends React.Component {
           inputValorMinimo={this.state.inputValorMinimo}
           inputBusca={this.state.inputBusca}
         />
+        <div>
+          <h4>Quantidade de produtos: </h4>
+          <h4>Ordenar por:</h4>
+          <select>
+
+            <option selected value="Menor Preço">Menor Preço</option>
+            <option value="Maior Preço">Maior Preço</option>
+
+          </select>
+        </div>
+
         <Produtos
           listaProdutos={this.state.listaProdutos}
           inputValorMaximo={this.state.inputValorMaximo}

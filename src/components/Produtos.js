@@ -38,6 +38,7 @@ export default class Produtos extends React.Component {
             const listaFiltrada = this.filtraProduto().map((produto)=>{
 
                 return <div>
+                    
                 <ImagemProduto src={produto.imagemProduto} alt={produto.nomeProduto}/>
                 <h3>{produto.nomeProduto}</h3>
                 <p>₿ {produto.valor}</p>
@@ -48,8 +49,8 @@ export default class Produtos extends React.Component {
             })
 
 
-        console.log(this.listaFiltrada)
-        console.log(this.props.inputValorMinimo, this.props.inputValorMaximo)
+       /*  console.log(this.listaFiltrada)
+        console.log(this.props.inputValorMinimo, this.props.inputValorMaximo) */
 
        
         return <div>
