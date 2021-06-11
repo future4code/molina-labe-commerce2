@@ -48,7 +48,7 @@ export default class Carrinho extends React.Component {
 
                 <h2>CARRINHO</h2>
                 {this.renderizaCarrinho()}
-                {<p>Total: ₿ {this.props.valorTotal.toFixed(2)}</p>}
+                {<p>Total: ₿ {this.props.valorTotal}</p>}
             
             </div>
         )

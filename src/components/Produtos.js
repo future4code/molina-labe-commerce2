@@ -91,7 +91,7 @@ export default class Produtos extends React.Component {
         return (
             <div>
                 <div>
-                        <label>{"Ordenação"}</label>
+                        <label>{"Ordenar por"}:</label>
                         <select value={this.state.maiorMenor} onChange={this.handleChangeSelect}>
                             <option value="decrescente">{"Maior Preço"}</option>
                             <option value="crescente">{"Menor Preço"}</option>
