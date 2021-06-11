@@ -35,6 +35,13 @@ const SelectEstilizado = styled.select`
 const CardProdutos = styled.div`
     border: 1px solid black;
     display: grid;
+    text-align:center;
+    font-size:  1.3em;
+    @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+    font-family:'lobster';
+
+
+    
     
 
 `
@@ -118,7 +125,7 @@ export default class Produtos extends React.Component {
 
                     <ImagemProduto src={produto.imagemProduto} alt={produto.nomeProduto} />
                     <h3>{produto.nomeProduto}</h3>
-                    <p>₿ {produto.valor}</p>
+                    <h3>{produto.valor}</h3>
                     <StyledButton onClick={() => this.addCarrinho(produto.id)}>Adicionar ao carrinho</StyledButton>
 
                 </CardProdutos>
