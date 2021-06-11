@@ -10,6 +10,11 @@ const Container = styled.div`
   display: flex;
 `;
 
+const Filtro = styled.div ` 
+  border: 1px solid black;
+  height: 100vh;
+`
+
 const listaProdutos = [
   {
     imagemProduto: "https://blog.enem.com.br/wp-content/uploads/2020/04/img-materia-r7-inter.jpg",
@@ -51,7 +56,6 @@ const listaProdutos = [
 
 ];
 
-
 export default class App extends React.Component {
 
   constructor() {
@@ -59,7 +63,8 @@ export default class App extends React.Component {
 
     this.carrinho = []
   }
-  
+
+
   state = {
     carrinho: [],
     valorTotal: 0,
@@ -68,9 +73,9 @@ export default class App extends React.Component {
     inputValorMaximo: +Infinity,
     inputBusca: ""
   }
+  
 
   getCarrinho = () => {
-    // this.setState({carrinho: this.state.carrinho})
     return this.state.carrinho;
   }
 
@@ -93,7 +98,6 @@ export default class App extends React.Component {
   }
 
   removeDoCarrinho = (itemId) => {
-    console.log('Removendo item ' + itemId + ' do carrinho!')
 
     let valorTotal = this.state.valorTotal;
     let carrinho = this.state.carrinho;
@@ -129,36 +133,39 @@ export default class App extends React.Component {
     this.setState({ inputBusca: event.target.value })
   }
 
+
   render() {
+
+
+    
 
     return (
       <Container>
-        <Filtros
-          onChangeInputValorMinimo={this.onChangeInputValorMinimo}
-          onChangeInputValorMaximo={this.onChangeInputValorMaximo}
-          onChageInputBusca={this.onChangeInputBusca}
-          inputValorMaximo={this.state.inputValorMaximo}
-          inputValorMinimo={this.state.inputValorMinimo}
-          inputBusca={this.state.inputBusca}
-        />
+
+        <Filtro>
+
+          <Filtros
+            onChangeInputValorMinimo={this.onChangeInputValorMinimo}
+            onChangeInputValorMaximo={this.onChangeInputValorMaximo}
+            onChageInputBusca={this.onChangeInputBusca}
+            inputValorMaximo={this.state.inputValorMaximo}
+            inputValorMinimo={this.state.inputValorMinimo}
+            inputBusca={this.state.inputBusca}
+          />
+
+        </Filtro>
+
+
         <div>
-          <h4>Quantidade de produtos: </h4>
-          <h4>Ordenar por:</h4>
-          <select>
-
-            <option selected value="Menor Preço">Menor Preço</option>
-            <option value="Maior Preço">Maior Preço</option>
-
-          </select>
-        </div>
-
-        <Produtos
-          listaProdutos={listaProdutos}
-          inputValorMaximo={this.state.inputValorMaximo}
-          inputValorMinimo={this.state.inputValorMinimo}
-          inputBusca={this.state.inputBusca}
-          adicionaAoCarrinho={this.adicionaAoCarrinho}
-        />
+          <Produtos
+            listaProdutos={listaProdutos}
+            inputValorMaximo={this.state.inputValorMaximo}
+            inputValorMinimo={this.state.inputValorMinimo}
+            inputBusca={this.state.inputBusca}
+            adicionaAoCarrinho={this.adicionaAoCarrinho}
+          />
+       </div>
+       
 
         <Carrinho 
           valorTotal={this.state.valorTotal}
@@ -166,6 +173,8 @@ export default class App extends React.Component {
           getCarrinho={this.getCarrinho}
           removeDoCarrinho={this.removeDoCarrinho}
         />
+
+
       </Container>
 
     )

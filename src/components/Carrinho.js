@@ -1,15 +1,12 @@
 import React from 'react'
 
-
 export default class Carrinho extends React.Component {
 
 
     getItensUnicos = () => {
-        console.log('getCarrinho()', this.props.getCarrinho())
+    
         const itens = new Set(this.props.getCarrinho());
         const itensArray = Array.from(itens);
-
-        console.log('getItensUnicos()', itensArray)
         return itensArray;
     }
 
@@ -38,7 +35,6 @@ export default class Carrinho extends React.Component {
             )
         }
 
-        console.log('listaItens', listaItens);
         return listaItens;
     }
 
@@ -49,9 +45,11 @@ export default class Carrinho extends React.Component {
        
         return(
             <div>
-            <h2>CARRINHO</h2>
-            {this.renderizaCarrinho()}
-            {<p>Total: ₿ {this.props.valorTotal.toFixed(2)}</p>}
+
+                <h2>CARRINHO</h2>
+                {this.renderizaCarrinho()}
+                {<p>Total: ₿ {this.props.valorTotal.toFixed(2)}</p>}
+            
             </div>
         )
     }

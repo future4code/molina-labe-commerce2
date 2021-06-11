@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import styled from 'styled-components'
 
@@ -7,9 +9,16 @@ const ImagemProduto = styled.img`
 
 export default class Produtos extends React.Component {
 
+    state = {
+        maiorMenor: 'crescente',
+    }
+
+    handleChangeSelect = (event) => {
+        this.setState({maiorMenor: event.target.value})
+    }
+
     addCarrinho = (itemId) => {
         this.props.adicionaAoCarrinho(itemId);
-        console.log('Produto ' + itemId + ' adicionado ao carrinho!')
     }
 
 
@@ -40,27 +49,57 @@ export default class Produtos extends React.Component {
 
 
     render() {
-            const listaFiltrada = this.filtraProduto().map((produto)=>{
 
-                return <div>
+        const listaFiltrada = this.filtraProduto().map((produto)=>{
+
+            return (
+
+                <div>
+
+                    <ImagemProduto src={produto.imagemProduto} alt={produto.nomeProduto}/>
+                    <h3>{produto.nomeProduto}</h3>
+                    <p>₿ {produto.valor}</p>
+                    <button onClick={() => this.addCarrinho(produto.id)}>Adicionar ao carrinho</button>
                     
-                <ImagemProduto src={produto.imagemProduto} alt={produto.nomeProduto}/>
-                <h3>{produto.nomeProduto}</h3>
-                <p>₿ {produto.valor}</p>
-                <button onClick={() => this.addCarrinho(produto.id)}>Adicionar ao carrinho</button>
-            </div>
+                </div>
+            )
 
 
-            })
+        })
 
+        let quantidade = 0;
+        let listaProdutos;
+    
+        switch(this.state.maiorMenor) {
 
-       /*  console.log(this.listaFiltrada)
-        console.log(this.props.inputValorMinimo, this.props.inputValorMaximo) */
+          case 'crescente':
+            listaProdutos = this.props.listaProdutos.sort((a, b) => b.valor - a.valor)
+            break;
+          case 'decrescente':
+            listaProdutos = this.props.listaProdutos.sort((a, b) => a.valor - b.valor)
+            break;
+          default:
+            listaProdutos = this.props.listaProdutos.sort((a, b) => b.valor - a.valor)
+            break;
+        }
 
+         listaProdutos = listaProdutos.map((produto) => {
+          quantidade++;
+         })
+       
        
         return (
             <div>
+                <div>
+                        <label>{"Ordenação"}</label>
+                        <select value={this.state.maiorMenor} onChange={this.handleChangeSelect}>
+                            <option value="decrescente">{"Maior Preço"}</option>
+                            <option value="crescente">{"Menor Preço"}</option>
+                        </select>
+                </div>
+
                 {listaFiltrada}
+
             </div>
         )
         
