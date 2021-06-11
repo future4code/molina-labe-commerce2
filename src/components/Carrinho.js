@@ -3,7 +3,19 @@ import styled from 'styled-components'
 
 const CarrinhoEstilizado = styled.div`
 width: 20%;
-border: 1px solid black;
+text-align: center;
+`
+
+const BotaoCarrinho = styled.button`
+    display: grid;
+    background-color: #eee;
+    border: 1px solid #ddd;
+    color: #333;
+    font-size: 1em;
+    padding: 10px 15px;
+    margin: auto;
+    margin-bottom: 5px;
+    border-radius: 30px;
 
 `
 
@@ -38,7 +50,7 @@ export default class Carrinho extends React.Component {
             listaItens.push(
                 <div>
                     <p>{this.getQuantItem(itemId)}x {this.props.produtos[itemId].nomeProduto}</p>
-                    <button onClick={() => this.props.removeDoCarrinho(itemId)}>Remover item</button>
+                    <BotaoCarrinho onClick={() => this.props.removeDoCarrinho(itemId)}>Remover item</BotaoCarrinho>
                 </div>
             )
         }

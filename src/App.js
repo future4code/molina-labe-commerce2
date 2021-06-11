@@ -14,21 +14,22 @@ import Asteroid from './img/asteroid.jpg'
 
 const Container = styled.div`
   display: flex;
+  
 `
 
 const Filtro = styled.div ` 
   display: flex;
-  border: 1px solid black;
-  height: 100vh;
+  height: 100%;
   width: 20%;
   justify-content: center;
   `
 
 
 const ProdutosEstilizados = styled.div`
-border: 1px solid black;
+
 display: grid;
 width: 80%;
+padding: 8px;
 
 `
 

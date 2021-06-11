@@ -24,27 +24,46 @@ const DivProdutos = styled.div`
 
 const DivQuantidade = styled.div`
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
 
 `
 
 const SelectEstilizado = styled.select`
-    height: 50%;
+    height: 30%;
 `
 
 const CardProdutos = styled.div`
     border: 1px solid black;
     display: grid;
+    
 
 `
 
 const StyledButton = styled.button`
-    margin-bottom: 8px;
-    width: 153px;
-    border-radius: 16px;
+   display: grid;
+    background-color: #eee;
+    border: 1px solid #ddd;
+    color: #333;
+    font-size: 1em;
+    padding: 10px 15px;
+    margin: auto;
+    margin-bottom: 5px;
+    border-radius: 30px;
+
 
 
 `
+
+const OrdernarEstilizado = styled.div`
+display: flex;
+align-items: center;
+
+
+`
+
+
+
+
 
 
 
@@ -133,12 +152,17 @@ export default class Produtos extends React.Component {
             <div>
 
                 <DivQuantidade>
-                    <h3>Quantidade de produtos: {listaFiltrada.length}</h3>
-                    <label>{"Ordenar por"}:</label>
-                    <SelectEstilizado value={this.state.maiorMenor} onChange={this.handleChangeSelect}>
-                        <option value="decrescente">{"Maior Preço"}</option>
-                        <option value="crescente">{"Menor Preço"}</option>
-                    </SelectEstilizado>
+                    
+                        <h3>Quantidade de produtos: {listaFiltrada.length}</h3>
+                        <OrdernarEstilizado>
+                        <label>{"Ordenar por"}:</label>
+                        <SelectEstilizado value={this.state.maiorMenor} onChange={this.handleChangeSelect}>
+                            <option value="decrescente">{"Maior Preço"}</option>
+                            <option value="crescente">{"Menor Preço"}</option>
+
+                        </SelectEstilizado>
+                        </OrdernarEstilizado>
+                    
                 </DivQuantidade>
 
                 <DivProdutos>
