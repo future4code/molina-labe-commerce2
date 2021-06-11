@@ -14,6 +14,8 @@ import Asteroid from './img/asteroid.jpg'
 
 const Container = styled.div`
   display: flex;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
   
 `
 
@@ -22,6 +24,8 @@ const Filtro = styled.div `
   height: 100%;
   width: 20%;
   justify-content: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
   `
 
 

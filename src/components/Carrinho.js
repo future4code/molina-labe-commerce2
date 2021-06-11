@@ -1,9 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import Bitcoin from '../img/bitcoin.png'
 
 const CarrinhoEstilizado = styled.div`
 width: 20%;
 text-align: center;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 `
 
 const BotaoCarrinho = styled.button`
@@ -12,10 +15,19 @@ const BotaoCarrinho = styled.button`
     border: 1px solid #ddd;
     color: #333;
     font-size: 1em;
-    padding: 10px 15px;
+    padding: 5px 10px;
     margin: auto;
     margin-bottom: 5px;
     border-radius: 30px;
+    
+
+`
+
+const BitcoinImagem = styled.img`
+    margin-top: 297px;
+    position: absolute;
+    width: 32px;
+    margin-left: 82px;
 
 `
 
