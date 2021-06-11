@@ -136,7 +136,7 @@ export default class App extends React.Component {
 
   render() {
 
-
+   
     
 
     return (
@@ -147,7 +147,7 @@ export default class App extends React.Component {
           <Filtros
             onChangeInputValorMinimo={this.onChangeInputValorMinimo}
             onChangeInputValorMaximo={this.onChangeInputValorMaximo}
-            onChageInputBusca={this.onChangeInputBusca}
+            onChangeInputBusca={this.onChangeInputBusca}
             inputValorMaximo={this.state.inputValorMaximo}
             inputValorMinimo={this.state.inputValorMinimo}
             inputBusca={this.state.inputBusca}
@@ -161,7 +161,7 @@ export default class App extends React.Component {
             listaProdutos={listaProdutos}
             inputValorMaximo={this.state.inputValorMaximo}
             inputValorMinimo={this.state.inputValorMinimo}
-            inputBusca={this.state.inputBusca}
+            inputBusca={this.state.inputBusca} 
             adicionaAoCarrinho={this.adicionaAoCarrinho}
           />
        </div>
