@@ -37,13 +37,8 @@ const CardProdutos = styled.div`
     display: grid;
     text-align:center;
     font-size:  1.3em;
-    @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-    font-family:'lobster';
-
-
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     
-    
-
 `
 
 const StyledButton = styled.button`
@@ -65,16 +60,12 @@ const OrdernarEstilizado = styled.div`
 display: flex;
 align-items: center;
 
-
 `
 
 
-
-
-
-
-
 export default class Produtos extends React.Component {
+
+    listaProdutos = this.props.listaProdutos();
 
     state = {
         maiorMenor: 'crescente',
@@ -91,7 +82,7 @@ export default class Produtos extends React.Component {
 
     filtraProduto = () => {
 
-        const listaFiltrada = this.props.listaProdutos.filter((produto) => {
+        const listaFiltrada = this.listaProdutos.filter((produto) => {
 
             if (produto.valor > this.props.inputValorMinimo && produto.valor < this.props.inputValorMaximo) {
                 return true
@@ -113,9 +104,27 @@ export default class Produtos extends React.Component {
     }
 
 
+    ordernaLista = () => {
+        switch (this.state.maiorMenor) {
+
+            case 'crescente':
+                this.listaProdutos.sort((a, b) => b.valor - a.valor)
+                break;
+            case 'decrescente':
+                this.listaProdutos.sort((a, b) => a.valor - b.valor)
+                break;
+            default:
+                this.listaProdutos.sort((a, b) => b.valor - a.valor)
+                break;
+        }
+
+    }
+
 
 
     render() {
+
+        this.ordernaLista();
 
         const listaFiltrada = this.filtraProduto().map((produto) => {
 
@@ -125,33 +134,13 @@ export default class Produtos extends React.Component {
 
                     <ImagemProduto src={produto.imagemProduto} alt={produto.nomeProduto} />
                     <h3>{produto.nomeProduto}</h3>
-                    <h3>{produto.valor}</h3>
+                    <h3> ₿ {produto.valor}</h3>
                     <StyledButton onClick={() => this.addCarrinho(produto.id)}>Adicionar ao carrinho</StyledButton>
 
                 </CardProdutos>
             )
 
 
-        })
-
-        let quantidade = 0;
-        let listaProdutos;
-
-        switch (this.state.maiorMenor) {
-
-            case 'crescente':
-                listaProdutos = this.props.listaProdutos.sort((a, b) => b.valor - a.valor)
-                break;
-            case 'decrescente':
-                listaProdutos = this.props.listaProdutos.sort((a, b) => a.valor - b.valor)
-                break;
-            default:
-                listaProdutos = this.props.listaProdutos.sort((a, b) => b.valor - a.valor)
-                break;
-        }
-
-        listaProdutos = listaProdutos.map((produto) => {
-            quantidade++;
         })
 
 

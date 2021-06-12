@@ -1,71 +1,51 @@
 import React from 'react';
 import Filtros from './components/Filtros';
-
 import styled from 'styled-components';
 import Carrinho from './components/Carrinho';
 import Produtos from './components/Produtos';
-import Miller from './img/miller.jpg'
-import Gargantua from './img/gargantua.jpg'
-import Ranger from './img/ranger.jpg'
-import Pandora from './img/pandora.jpg'
-import Marte from './img/marte.jpg'
-import Asteroid from './img/asteroid.jpg'
 
 
 const Container = styled.div`
   display: flex;
-  
-`
+`;
 
 const Filtro = styled.div ` 
-  display: flex;
-  height: 100%;
-  width: 20%;
-  justify-content: center;
-  `
-
-
-const ProdutosEstilizados = styled.div`
-
-display: grid;
-width: 80%;
-padding: 8px;
-
+  height: 100vh;
 `
 
 const listaProdutos = [
   {
-    imagemProduto: Miller,
+    imagemProduto: "https://blog.enem.com.br/wp-content/uploads/2020/04/img-materia-r7-inter.jpg",
     nomeProduto: "Planeta Miller",
     valor: 85,
     id: 1
   },
   {
-    imagemProduto: Gargantua,
+    imagemProduto: "https://gizmodo.uol.com.br/wp-content/blogs.dir/8/files/2019/04/buraco-negro-gargantua-970x444.jpg",
     nomeProduto: "Buraco Negro Gargantua",
     valor: 90,
     id: 2
   },
   {
-    imagemProduto: Ranger,
+    imagemProduto: "https://blogdoishii.files.wordpress.com/2018/07/k01vra.jpg",
     nomeProduto: "Planeta Ranger",
     valor: 55,
     id: 3
   },
   {
-    imagemProduto: Pandora,
+    imagemProduto: "https://imagens.publico.pt/imagens.aspx/885789?tp=UH&db=IMAGENS&type=JPG",
     nomeProduto: "Planeta Pandora",
     valor: 75,
     id: 4
   },
   {
-    imagemProduto: Marte,
+    imagemProduto: "https://super.abril.com.br/wp-content/uploads/2020/01/agua-marte-curiosity.jpg",
     nomeProduto: "Planeta Marte",
     valor: 20,
     id: 5
   },
   {
-    imagemProduto: Asteroid,
+    imagemProduto: "https://cdn.universoracionalista.org/wp-content/uploads/2020/06/ceres-dawn.jpg",
     nomeProduto: "Asteróide B-612",
     valor: 32,
     id: 6
@@ -91,6 +71,11 @@ export default class App extends React.Component {
     inputValorMaximo: +Infinity,
     inputBusca: ""
   }
+
+
+  getListaProdutos = () => {
+    return listaProdutos;
+  }
   
 
   getCarrinho = () => {
@@ -106,7 +91,7 @@ export default class App extends React.Component {
   adicionaAoCarrinho = (itemId) => {
     this.setState(state => {
       const carrinho = state.carrinho.concat(itemId);
-      const valorTotal = state.valorTotal + listaProdutos[itemId-1].valor;
+      const valorTotal = state.valorTotal + listaProdutos[itemId -1].valor;
 
       return {
         carrinho,
@@ -154,7 +139,7 @@ export default class App extends React.Component {
 
   render() {
 
-   
+
     
 
     return (
@@ -165,7 +150,7 @@ export default class App extends React.Component {
           <Filtros
             onChangeInputValorMinimo={this.onChangeInputValorMinimo}
             onChangeInputValorMaximo={this.onChangeInputValorMaximo}
-            onChangeInputBusca={this.onChangeInputBusca}
+            onChageInputBusca={this.onChangeInputBusca}
             inputValorMaximo={this.state.inputValorMaximo}
             inputValorMinimo={this.state.inputValorMinimo}
             inputBusca={this.state.inputBusca}
@@ -174,20 +159,20 @@ export default class App extends React.Component {
         </Filtro>
 
 
-        <ProdutosEstilizados>
+        <div>
           <Produtos
-            listaProdutos={listaProdutos}
+            listaProdutos={this.getListaProdutos}
             inputValorMaximo={this.state.inputValorMaximo}
             inputValorMinimo={this.state.inputValorMinimo}
-            inputBusca={this.state.inputBusca} 
+            inputBusca={this.state.inputBusca}
             adicionaAoCarrinho={this.adicionaAoCarrinho}
           />
-       </ProdutosEstilizados>
+       </div>
        
 
         <Carrinho 
           valorTotal={this.state.valorTotal}
-          produtos={listaProdutos}
+          produtos={this.getListaProdutos()}
           getCarrinho={this.getCarrinho}
           removeDoCarrinho={this.removeDoCarrinho}
         />

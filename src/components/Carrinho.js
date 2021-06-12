@@ -42,6 +42,15 @@ export default class Carrinho extends React.Component {
 
         return quant;
     }
+    
+
+    getProduto(itemId) {
+        for (let item of this.props.produtos) {
+            if (item.id === itemId) {
+                return item;
+            }
+        }
+    }
 
 
     renderizaCarrinho = () => {
@@ -49,7 +58,7 @@ export default class Carrinho extends React.Component {
         for (let itemId of this.getItensUnicos()) {
             listaItens.push(
                 <div>
-                    <p>{this.getQuantItem(itemId)}x {this.props.produtos[itemId].nomeProduto}</p>
+                    <p>{this.getQuantItem(itemId)}x {this.getProduto(itemId).nomeProduto}</p>
                     <BotaoCarrinho onClick={() => this.props.removeDoCarrinho(itemId)}>Remover item</BotaoCarrinho>
                 </div>
             )
@@ -62,14 +71,13 @@ export default class Carrinho extends React.Component {
 
 
     render() {
-       
         return(
             <CarrinhoEstilizado>
 
                 <h2>CARRINHO</h2>
                 {this.renderizaCarrinho()}
-                {<p>Total: ₿ {this.props.valorTotal}</p>}
-            
+                <p>Total: ₿ {this.props.valorTotal}</p>
+                
             </CarrinhoEstilizado>
         )
     }
