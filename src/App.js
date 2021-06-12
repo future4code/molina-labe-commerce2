@@ -3,14 +3,56 @@ import Filtros from './components/Filtros';
 import styled from 'styled-components';
 import Carrinho from './components/Carrinho';
 import Produtos from './components/Produtos';
+import Miller from './img/miller.jpg'
+import Gargantua from './img/gargantua.jpg'
+import Ranger from './img/ranger.jpg'
+import Pandora from './img/pandora.jpg'
+import Marte from './img/marte.jpg'
+import Asteroid from './img/asteroid.jpg'
+import Logo from './img/logo.png'
 
 
 const Container = styled.div`
   display: flex;
-`;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+`
 
 const Filtro = styled.div ` 
-  height: 100vh;
+  display: flex;
+  height: 100%;
+  width: 20%;
+  justify-content: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  `
+
+
+const ProdutosEstilizados = styled.div`
+
+display: grid;
+width: 80%;
+padding: 8px;
+
+`
+
+const Header = styled.div`
+display: flex;
+justify-content: left;
+
+font-family: 'Times New Roman', Times, serif;
+height: 100px;
+
+`
+
+const ImagemLogo = styled.img`
+    width: 150px;
+    height: 150px;
+    margin-top: -24px;
+
+`
+
+const NomeSite = styled.h1`
+    font-weight: 600;
+    margin-left: 43px;
 `
 
 const listaProdutos = [
@@ -143,6 +185,14 @@ export default class App extends React.Component {
     
 
     return (
+      <div>
+
+
+        <Header>
+          <ImagemLogo src={Logo}/>
+          <NomeSite>AstroDev - Turismo Intergaláctico</NomeSite>
+        </Header>
+      
       <Container>
 
         <Filtro>
@@ -179,6 +229,8 @@ export default class App extends React.Component {
 
 
       </Container>
+
+      </div>
 
     )
   }

@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import styled from 'styled-components'
+import Bitcoin from '../img/bitcoin.png'
 
 const ImagemProduto = styled.img`
     width: 100%;
@@ -38,7 +39,6 @@ const CardProdutos = styled.div`
     text-align:center;
     font-size:  1.3em;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    
 `
 
 const StyledButton = styled.button`
@@ -46,11 +46,13 @@ const StyledButton = styled.button`
     background-color: #eee;
     border: 1px solid #ddd;
     color: #333;
-    font-size: 1em;
+    font-size: 16px;
     padding: 10px 15px;
     margin: auto;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     border-radius: 30px;
+    
+    
 
 
 
@@ -59,6 +61,14 @@ const StyledButton = styled.button`
 const OrdernarEstilizado = styled.div`
 display: flex;
 align-items: center;
+
+`
+
+const BitcoinImagem = styled.img`
+    margin-top: 297px;
+    position: absolute;
+    width: 32px;
+    margin-left: 82px;
 
 `
 
@@ -134,7 +144,7 @@ export default class Produtos extends React.Component {
 
                     <ImagemProduto src={produto.imagemProduto} alt={produto.nomeProduto} />
                     <h3>{produto.nomeProduto}</h3>
-                    <h3> ₿ {produto.valor}</h3>
+                    <BitcoinImagem src={Bitcoin}/><h3>{produto.valor}</h3>
                     <StyledButton onClick={() => this.addCarrinho(produto.id)}>Adicionar ao carrinho</StyledButton>
 
                 </CardProdutos>
