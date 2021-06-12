@@ -15,46 +15,38 @@ import Logo from './img/logo.png'
 const Container = styled.div`
   display: flex;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 10px;
+  color: saddlebrown;
+    background-image: url(https://static.vecteezy.com/system/resources/previews/001/218/845/non_2x/colorful-holographic-gradient-background-design-vector.jpg);
 `
 
 const Filtro = styled.div ` 
-  display: flex;
-  height: 100%;
-  width: 20%;
-  justify-content: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  `
-
-
-const ProdutosEstilizados = styled.div`
-
-display: grid;
-width: 80%;
-padding: 8px;
-
+  margin: 50px 20px 0 10px;
 `
+
+
 
 const Header = styled.div`
 display: flex;
-justify-content: left;
-
-font-family: 'Times New Roman', Times, serif;
-height: 100px;
+justify-content: center;
+background-image: url(https://png.pngtree.com/thumb_back/fw800/background/20190222/ourmid/pngtree-space-universe-banner-background-universetechnology-backgroundgradient-backgroundgradual-image_54068.jpg)
 
 `
 
 const ImagemLogo = styled.img`
     width: 150px;
-    height: 150px;
-    margin-top: -24px;
+    height: 135px;
+    margin-top: -10px;
+    object-fit: cover;
 
 `
 
 const NomeSite = styled.h1`
-    font-weight: 600;
-    margin-left: 43px;
+color:whitesmoke ;
+margin-top: 40px;
+margin-left: 10px;
+font-style: italic;
 `
-
 const listaProdutos = [
   {
     imagemProduto: Miller,
@@ -198,7 +190,7 @@ export default class App extends React.Component {
           <Filtros
             onChangeInputValorMinimo={this.onChangeInputValorMinimo}
             onChangeInputValorMaximo={this.onChangeInputValorMaximo}
-            onChageInputBusca={this.onChangeInputBusca}
+            onChangeInputBusca={this.onChangeInputBusca}
             inputValorMaximo={this.state.inputValorMaximo}
             inputValorMinimo={this.state.inputValorMinimo}
             inputBusca={this.state.inputBusca}
