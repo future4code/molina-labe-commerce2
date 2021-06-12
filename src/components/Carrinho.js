@@ -1,36 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
-import Bitcoin from '../img/bitcoin.png'
 
 const CarrinhoEstilizado = styled.div`
-width: 20%;
+width: 50%;
+margin-top: 50px;
 text-align: center;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
 `
 
 const BotaoCarrinho = styled.button`
-    display: grid;
-    background-color: #eee;
-    border: 1px solid #ddd;
-    color: #333;
-    font-size: 1em;
-    padding: 5px 10px;
-    margin: auto;
-    margin-bottom: 5px;
-    border-radius: 30px;
-    
+    border: none;
+    color: #fff;
+    color: black;
+    margin-left: 5px;
+    background-color: #CFCFCF;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 4px;
 
 `
-
-const BitcoinImagem = styled.img`
-    margin-top: 297px;
-    position: absolute;
-    width: 32px;
-    margin-left: 82px;
+const ItensRemove = styled.p `
+font-size: 18px;
 
 `
-
 
 export default class Carrinho extends React.Component {
 
@@ -70,7 +64,7 @@ export default class Carrinho extends React.Component {
         for (let itemId of this.getItensUnicos()) {
             listaItens.push(
                 <div>
-                    <p>{this.getQuantItem(itemId)}x {this.getProduto(itemId).nomeProduto}</p>
+                    <ItensRemove>{this.getQuantItem(itemId)}x {this.getProduto(itemId).nomeProduto}</ItensRemove>
                     <BotaoCarrinho onClick={() => this.props.removeDoCarrinho(itemId)}>Remover item</BotaoCarrinho>
                 </div>
             )
@@ -88,7 +82,7 @@ export default class Carrinho extends React.Component {
 
                 <h2>CARRINHO</h2>
                 {this.renderizaCarrinho()}
-                <p>Total: ₿ {this.props.valorTotal}</p>
+                <ItensRemove>Total: ฿ {this.props.valorTotal}</ItensRemove>
                 
             </CarrinhoEstilizado>
         )

@@ -26,35 +26,38 @@ const DivProdutos = styled.div`
 const DivQuantidade = styled.div`
     display: flex;
     justify-content: space-between;
+    margin-left: 40px;
+    margin-right: 40px;
 
 `
 
 const SelectEstilizado = styled.select`
     height: 30%;
+    background-color:#FFDEAD;
+    font-style: italic;
+    color:	#8B4726;
+    font-size: 13px;
+    margin-left: 5px;
 `
 
 const CardProdutos = styled.div`
     border: 1px solid black;
     display: grid;
     text-align:center;
-    font-size:  1.3em;
+    font-size:  18px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 `
 
 const StyledButton = styled.button`
-   display: grid;
-    background-color: #eee;
-    border: 1px solid #ddd;
-    color: #333;
-    font-size: 16px;
-    padding: 10px 15px;
-    margin: auto;
-    margin-bottom: 10px;
-    border-radius: 30px;
-    
-    
-
-
+    border: none;
+    color: #fff;
+    color: black;
+    margin: 0 10px 10px 10px;
+    background-color: #CFCFCF;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 4px;
 
 `
 
@@ -65,7 +68,8 @@ align-items: center;
 `
 
 const BitcoinImagem = styled.img`
-    margin-top: 297px;
+    margin-top: 285px;
+    margin-left:20px;
     position: absolute;
     width: 32px;
     margin-left: 82px;
@@ -144,7 +148,7 @@ export default class Produtos extends React.Component {
 
                     <ImagemProduto src={produto.imagemProduto} alt={produto.nomeProduto} />
                     <h3>{produto.nomeProduto}</h3>
-                    <BitcoinImagem src={Bitcoin}/><h3>{produto.valor}</h3>
+                    <BitcoinImagem src={Bitcoin}/><h3>฿ {produto.valor}</h3>
                     <StyledButton onClick={() => this.addCarrinho(produto.id)}>Adicionar ao carrinho</StyledButton>
 
                 </CardProdutos>
@@ -161,7 +165,7 @@ export default class Produtos extends React.Component {
                     
                         <h3>Quantidade de produtos: {listaFiltrada.length}</h3>
                         <OrdernarEstilizado>
-                        <label>{"Ordenar por"}:</label>
+                        <label>{"Ordenar por"}: </label>
                         <SelectEstilizado value={this.state.maiorMenor} onChange={this.handleChangeSelect}>
                             <option value="decrescente">{"Maior Preço"}</option>
                             <option value="crescente">{"Menor Preço"}</option>

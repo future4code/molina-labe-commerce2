@@ -23,7 +23,7 @@ export default class Filtros extends React.Component {
         return (
 
             <div>
-                <h2>FILTROS</h2>
+                <h2>Filtros:</h2>
                 <p>Valor Mínimo:</p>
                 <input
                     type="number"
