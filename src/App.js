@@ -16,9 +16,11 @@ const Container = styled.div`
   display: flex;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   padding: 10px;
-  color: saddlebrown;
-    background-image: url(https://static.vecteezy.com/system/resources/previews/001/218/845/non_2x/colorful-holographic-gradient-background-design-vector.jpg);
+  color: white; 
+  text-shadow: black 0.1em 0.1em 0.2em;
+    background-image: url("https://equilibriumlatam.com/wp-content/uploads/2018/07/bg-roxo.jpg?id=4336");
 `
+
 
 const Filtro = styled.div ` 
   margin: 50px 20px 0 10px;
@@ -29,23 +31,26 @@ const Filtro = styled.div `
 const Header = styled.div`
 display: flex;
 justify-content: center;
-background-image: url(https://png.pngtree.com/thumb_back/fw800/background/20190222/ourmid/pngtree-space-universe-banner-background-universetechnology-backgroundgradient-backgroundgradual-image_54068.jpg)
+background-color: #FFE1FF;
 
 `
 
 const ImagemLogo = styled.img`
-    width: 150px;
-    height: 135px;
-    margin-top: -10px;
-    object-fit: cover;
+  width: 170px;
+  height: 125px;
+  margin-top: 5px;
+  object-fit: cover;
 
 `
 
+
 const NomeSite = styled.h1`
-color:whitesmoke ;
-margin-top: 40px;
-margin-left: 10px;
-font-style: italic;
+  color: black; 
+  text-shadow: purple 0.1em 0.1em 0.2em;
+  margin-top: 40px;
+  margin-left: 10px;
+  font-style: italic;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 `
 const listaProdutos = [
   {
@@ -216,7 +221,6 @@ export default class App extends React.Component {
           getCarrinho={this.getCarrinho}
           removeDoCarrinho={this.removeDoCarrinho}
         />
-
 
       </Container>
 

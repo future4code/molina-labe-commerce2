@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const CarrinhoEstilizado = styled.div`
 width: 50%;
+margin-left: 20px;
 margin-top: 50px;
 text-align: center;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
