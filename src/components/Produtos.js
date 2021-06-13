@@ -40,6 +40,7 @@ const SelectEstilizado = styled.select`
 `
 
 const CardProdutos = styled.div`
+    background-color: #0c0c0c;
     border: 1px solid black;
     display: grid;
     text-align:center;
@@ -58,7 +59,15 @@ const StyledButton = styled.button`
     padding: 10px 24px;
     border-radius: 4px;
 
+    &:hover{
+        cursor: pointer;
+        color: #CFCFCF;
+        background-color: black;
+    }
+
 `
+
+
 
 const OrdernarEstilizado = styled.div`
 display: flex;
@@ -146,6 +155,8 @@ export default class Produtos extends React.Component {
 
 
         })
+
+        
 
 
         return (

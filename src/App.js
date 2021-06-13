@@ -9,7 +9,9 @@ import Ranger from './img/ranger.jpg'
 import Pandora from './img/pandora.jpg'
 import Marte from './img/marte.jpg'
 import Asteroid from './img/asteroid.jpg'
-import Logo from './img/logo.png'
+
+import Astronauta from './img/astronauta.png'
+
 
 
 const Container = styled.div`
@@ -18,7 +20,9 @@ const Container = styled.div`
   padding: 10px;
   color: white; 
   text-shadow: black 0.1em 0.1em 0.2em;
-    background-image: url("https://equilibriumlatam.com/wp-content/uploads/2018/07/bg-roxo.jpg?id=4336");
+    background-image: url("https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/thumbnails/image/potw2115a.jpg");
+
+   
 `
 
 
@@ -31,27 +35,30 @@ const Filtro = styled.div `
 const Header = styled.div`
 display: flex;
 justify-content: center;
-background-color: #FFE1FF;
+background-color:#8c8c8c;
 
 `
 
 const ImagemLogo = styled.img`
-  width: 170px;
-  height: 125px;
-  margin-top: 5px;
-  object-fit: cover;
+    width: 160px;
+    height: 173px;
+    margin-top: 5px;
 
 `
 
 
 const NomeSite = styled.h1`
-  color: black; 
-  text-shadow: purple 0.1em 0.1em 0.2em;
-  margin-top: 40px;
-  margin-left: 10px;
-  font-style: italic;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 8px;
+    color: black;
+    margin-top: 65px;
+    margin-left: 10px;
+    font-family: system-ui;
 `
+
+
+
+
+
 const listaProdutos = [
   {
     imagemProduto: Miller,
@@ -109,6 +116,7 @@ export default class App extends React.Component {
     inputBusca: ""
   }
 
+  
 
   getListaProdutos = () => {
     return listaProdutos;
@@ -184,7 +192,7 @@ export default class App extends React.Component {
 
 
         <Header>
-          <ImagemLogo src={Logo}/>
+          <ImagemLogo src={Astronauta}/>
           <NomeSite>AstroDev - Turismo Intergaláctico</NomeSite>
         </Header>
       
